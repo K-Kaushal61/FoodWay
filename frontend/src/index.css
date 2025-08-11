@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Arimo:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.app{
+  width: 80%;
+  margin: auto;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 2000ms ease-out both;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
