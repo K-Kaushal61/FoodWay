@@ -4,7 +4,7 @@ import '../../index.css'
 
 const Header = () => {
   return (
-    <div className="header h-screen w-[100%] bg-[url('/header_img.png')] bg-no-repeat bg-contain relative mt-[9%]">
+    <div className="header h-screen w-full bg-[url('/header_img.png')] bg-no-repeat bg-contain relative mt-[9%] ">
         <div className="header-contents absolute flex flex-col items-start gap-2 top-1/3 left-20 text-black animate-fadeIn ">
             <h1 className='font-extrabold text-white text-6xl'>Order Now</h1>
             <p className='tracking-tight text-white text-lg'>
