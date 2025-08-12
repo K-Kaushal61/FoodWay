@@ -11,7 +11,7 @@ const FoodDisplay = ({category}) => {
         <h2 className='text-[max(2vw,24px)] font-[600]'>Top dishes near you</h2>
         <div className="food-display-list grid grid-cols-4 mt-[30px] gap-[30px] animate-fadeIn ">
             {food_list.map((item, index) => {
-                return <FoodItem key={index} id={item.id} name={item.name} price={item.price} description={item.description} image={item.image} />
+                return <FoodItem key={index} id={item._id} name={item.name} price={item.price} description={item.description} image={item.image} />
             })}
         </div>
     </div>
