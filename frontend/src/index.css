@@ -16,7 +16,7 @@ a{
 }
 
 .app{
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 
@@ -34,5 +34,5 @@ a{
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none;
 }

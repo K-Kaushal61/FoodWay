@@ -62,6 +62,8 @@ import parcel_icon from './parcel_icon.png'
 import shopping_cart from './shopping-cart.png'
 import add_icon from './add_icon.png'
 import remove from './remove.png'
+import hamburger from './hamburger.png'
+import close from './close.png'
 
 export const assets = {
     logo,
@@ -85,7 +87,9 @@ export const assets = {
     parcel_icon,
     shopping_cart,
     add_icon,
-    remove
+    remove,
+    hamburger,
+    close
 }
 
 export const menu_list = [
