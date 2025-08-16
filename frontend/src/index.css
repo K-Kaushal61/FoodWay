@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Arimo:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app {
+  flex-grow: 1;
+}
+
 * {
   box-sizing: border-box;
   font-family: sans-serif;

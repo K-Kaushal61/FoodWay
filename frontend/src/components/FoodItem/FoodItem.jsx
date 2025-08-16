@@ -7,6 +7,8 @@ const FoodItem = ({ id, name, price, description, image, category }) => {
 
   const { addToCart, removeFromCart, cartItems } = useContext(StoreContext);
 
+  console.log("Cart items in FoodItem:", cartItems);
+
   return (
     <div className="food-item w-full m-auto rounded-md shadow-[#ff4c24] shadow-md hover:shadow-xl transition duration-300 ease-in-out">
       <div className="food-item-img-container">
@@ -51,7 +53,7 @@ const FoodItem = ({ id, name, price, description, image, category }) => {
         </div>
         <p className="food-item-desc text-[#676767] text-sm">{description}</p>
         <p className="food-item-price text-[#ff4c24] font-[600] text-lg">
-          ${price}
+          ₹{price}
         </p>
       </div>
     </div>
