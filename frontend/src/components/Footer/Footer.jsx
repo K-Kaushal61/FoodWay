@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 const Footer = () => {
   return (
     <div className='footer text-[#d9d9d9] bg-[#323232] py-5 px-[8vw] pt-20 mt-[5vw]'>
-         <div className="footer-content w-full grid md:grid-cols-[2fr_1fr_1fr] place-content-center text-center gap-10">
+         <div className="footer-content w-full grid md:grid-cols-[2fr_1fr_1fr] place-content-center text-center gap-10 mb-5">
             <div className="footer-content-left flex flex-col items-center gap-2">
                 <img src={assets.logo} alt="" className='footer-logo mb-4 w-1/2'/>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo praesentium molestiae sint placeat! Nostrum maxime numquam odit aliquam ut iste vero delectus cum obcaecati, voluptates, sint nulla possimus porro provident.</p>
@@ -16,6 +16,7 @@ const Footer = () => {
             </div>
             <div className="footer-content-center flex flex-col gap-1">
                 <h2 className='font-extrabold text-lg'>Company</h2>
+                <hr className='border-amber-700 mx-auto w-[100px]' />
                 <ul>
                     <li className='cursor-pointer'>Home</li>
                     <li className='cursor-pointer'>About Us</li>
@@ -25,6 +26,7 @@ const Footer = () => {
             </div>
             <div className="footer-content-right flex flex-col gap-1 mb-5">
                 <h2 className='font-extrabold text-lg'>Get In Touch.</h2>
+                <hr className='border-amber-700 w-[135px] mx-auto' />
                 <ul>
                     <li>+91-9459386261</li>
                     <li>info@example.com</li>
@@ -32,7 +34,7 @@ const Footer = () => {
             </div>
          </div>
          <hr className='border-amber-700 w-full' />
-         <p className="footer-copyright">
+         <p className="footer-copyright text-center mt-1">
             Copyright 2025 Tomato.com - All Rights Reserved
          </p>
     </div>

@@ -20,12 +20,11 @@ const Header = () => {
         md:w-[80%]
         mx-auto
         rounded-md
+        bg-[url('https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg')]
+        md:bg-[url('https://images.pexels.com/photos/691114/pexels-photo-691114.jpeg')]
+        md:w-full
+        max-w-[100vw]
         "
-      style={{
-        backgroundImage: "url('/header_img.png')",
-        width: "100%",
-        maxWidth: "100vw",
-      }}
     >
       <div
         className="

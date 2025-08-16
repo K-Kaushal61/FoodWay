@@ -17,8 +17,8 @@ const FoodItem = ({ id, name, price, description, image, category }) => {
         />
       </div>
       <div className="food-item-info p-[20px]">
-        <div className="food-item-name-rating flex justify-between items-center mb-[10px] ">
-          <p className="font-[600] text-sm truncate">{name}</p>
+        <div className="food-item-name-rating flex justify-between items-center">
+          <p className="font-[600] text-sm ">{name}</p>
           <img src={assets.rating_starts} alt="" className="w-[70px]" />
           {!cartItems[id] ? (
             <div

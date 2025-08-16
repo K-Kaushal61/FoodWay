@@ -4,13 +4,15 @@ import '../../index.css'
 
 const ExploreMenu = ({category, setCategory}) => {
   return (
-    <div className='explore-menu flex flex-col gap-5'>
-      <h1 className='text-[#262626] font-bold'>Explore the Menu</h1>
-      <p className='explore-menu-text max-w-[60%] text-[#808080]'>
-        Discover a world of flavors with our diverse menu options.<br/>
-        From local favorites to international cuisines, we have something for everyone.
-      </p>
-      <div className="explore-menu-list flex justify-between items-center gap-4 text-center mx-4 my-0 overflow-scroll scrollbar-hide ">
+    <div className='explore-menu flex flex-col gap-5 mt-10'>
+      <div className='explore-menu-content flex flex-col gap-5 items-center'>
+        <h1 className='text-[#262626] font-bold text-3xl'>Explore the Menu</h1>
+        <p className='explore-menu-text max-w-[60%] text-[#808080] text-center'>
+          Discover a world of flavors with our diverse menu options.<br/>
+          From local favorites to international cuisines, we have something for everyone.
+        </p>
+      </div>
+      <div className="explore-menu-list flex justify-between items-center gap-4 text-center mx-4 my-0 overflow-scroll scrollbar-hide border-[#ff4c24] rounded-2xl border-2 md:border-none">
         {menu_list.map((item, index) => {
           return (
             <div onClick={() => setCategory(prev => prev === item.menu_name? "all" : item.menu_name)} key={index} className="explore-menu-list-item p-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-110 ">
