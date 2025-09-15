@@ -5,16 +5,15 @@ import { food_list } from "../../assets/assets";
 
 const FoodItem = ({ id, name, price, description, image, category }) => {
 
-  const { addToCart, removeFromCart, cartItems } = useContext(StoreContext);
+  const { addToCart, removeFromCart, cartItems, url } = useContext(StoreContext);
 
-  console.log("Cart items in FoodItem:", cartItems);
 
   return (
     <div className="food-item w-full m-auto rounded-md shadow-[#ff4c24] shadow-md hover:shadow-xl transition duration-300 ease-in-out">
       <div className="food-item-img-container">
         <img
           className="food-item-image w-full rounded-t-md"
-          src={image}
+          src={url+"/images/"+image}
           alt=""
         />
       </div>
@@ -28,7 +27,7 @@ const FoodItem = ({ id, name, price, description, image, category }) => {
               onClick={() => {
                 addToCart(id);
               }}
-            >
+            > 
               <p>Add</p>
               <img src={assets.shopping_cart} alt="" className="w-5 h-6" />
             </div>
