@@ -11,7 +11,6 @@ import orderRouter from './routes/orderRoute.routes.js';
 // app config
 const app = express(); 
 
-
 // middleware
 app.use(express.json())
 app.use(cors())
@@ -25,7 +24,6 @@ app.use("/images", express.static('uploads'))
 app.use("/api/user", userRouter)
 app.use("/api/cart", cartRouter)
 app.use("/api/order", orderRouter);
-
 
 app.get("/", (req, res) => {
     res.send("API working")
