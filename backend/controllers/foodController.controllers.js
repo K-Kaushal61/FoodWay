@@ -1,6 +1,5 @@
-import { log } from "console";
 import {foodModel} from "../models/foodModel.models.js";
-import fs, { fdatasync, read } from 'fs'
+import fs from 'fs'
 
 
 // add food items
