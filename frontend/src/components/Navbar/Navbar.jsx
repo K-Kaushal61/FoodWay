@@ -1,9 +1,9 @@
-import { useState, React, useContext } from 'react'
+import { useState, React, useContext, } from 'react'
 import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../components/context/StoreContext'
 
-const Navbar = ({ setShowLogin }) => {
+const Navbar = ({ setShowLogin, onMenuClick, onAboutClick, onContactClick }) => {
 
   const [menu, setMenu] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,6 +22,7 @@ const Navbar = ({ setShowLogin }) => {
 
   const {getTotalCartAmount, token, setToken} = useContext(StoreContext);
 
+
   return (
     <div className='navbar flex items-center justify-between w-full px-4 relative'>
       <div className="flex-shrink-0">
@@ -31,17 +32,19 @@ const Navbar = ({ setShowLogin }) => {
       <div className="flex-1 flex justify-center">
         <ul className={`navbar-menu gap-4 list-none text-md text-zinc-600 flex md:flex ${isMobileMenuOpen ? 'flex-col absolute top-full left-0 w-full bg-white z-10 p-4 items-center' : 'hidden md:flex'} transition-all duration-300`}>
           <Link to="/" className={`cursor-pointer ${menu === 'home' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100'}`} onClick={() => setMenu('home')} >home</Link>
-          <li className={`cursor-pointer ${menu === 'menu' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100'}`} onClick={() => setMenu('menu')}>menu</li>
-          <li className={`cursor-pointer ${menu === 'about' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100'}`} onClick={() => setMenu('about')}>about</li>
-          <li className={`cursor-pointer ${menu === 'contact' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100'}`} onClick={() => setMenu('contact')}>contact</li>
+          <li className={`cursor-pointer ${menu === 'menu' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100'}`} onClick={() => {setMenu('menu');onMenuClick(); }}>menu</li>
+          <li className={`cursor-pointer ${menu === 'about' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100'}`} onClick={() => {setMenu('about')
+            onAboutClick();
+          }}>about</li>
+          <li className={`cursor-pointer ${menu === 'contact' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100'}`} onClick={() => {setMenu('contact'); onContactClick(); }}>contact</li>
           <Link to='/cart' className={`cursor-pointer ${isMobileMenuOpen ? (menu === 'cart' ? 'border-b-2' : 'text-zinc-600 hover:bg-zinc-100') : 'hidden'}`} onClick={() => setMenu('cart')}>cart</Link>
         </ul>
       </div>
 
       <div className="navbar-right items-center gap-4 hidden md:flex">
-        <div className='navbar-search-icon relative'>
+        {/* <div className='navbar-search-icon relative'>
           <img src={assets.search_icon} className='cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-110' alt="search_icon.png" />
-        </div>
+        </div> */}
         <div className="navbar-search-icon relative">
           <Link to="/cart"><img src={assets.basket_icon} className='transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-110' alt="" /></Link>
           <div className={getTotalCartAmount() > 0 ? 'dot absolute min-w-2 min-h-2 bg-orange-300 rounded-full top-0.25 right-0' : 'hidden'}></div>

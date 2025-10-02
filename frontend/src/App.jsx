@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useRef } from 'react' // 1. Import useRef
 import Navbar from './components/Navbar/Navbar.jsx'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx'
@@ -13,18 +13,31 @@ const App = () => {
 
   const [showLogin, setShowLogin] = useState(false);
 
+  // 2. Create a ref for the menu section
+  const menuRef = useRef(null);
+  const footerRef = useRef(null);
+
+  // 3. Create the function to handle the scroll
+  const scrollToMenu = () => menuRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToAbout = () => footerRef.current?.scrollIntoView({ behavior: 'smooth' });
+const scrollToContact = () => footerRef.current?.scrollIntoView({ behavior: 'smooth' });
+
+
   return (
     <>
-    {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <> </>}
+    {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
     <div className='app'>
-      <Navbar setShowLogin={setShowLogin} />
+      {/* 4. Pass the scroll function to Navbar */}
+      <Navbar setShowLogin={setShowLogin} onMenuClick={scrollToMenu}  onAboutClick={scrollToAbout}  onContactClick={scrollToContact} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* 5. Pass the ref to the Home component */}
+        <Route path="/" element={<Home menuRef={menuRef}/>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/placeorder" element={<PlaceOrder />} />
       </Routes>
     </div>
-    <Footer />
+    <Footer  ref={footerRef}
+        onAboutClick={scrollToAbout}/>
     </>
 
   )
