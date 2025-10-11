@@ -13,11 +13,9 @@ const App = () => {
 
   const [showLogin, setShowLogin] = useState(false);
 
-  // 2. Create a ref for the menu section
   const menuRef = useRef(null);
   const footerRef = useRef(null);
 
-  // 3. Create the function to handle the scroll
   const scrollToMenu = () => menuRef.current?.scrollIntoView({ behavior: 'smooth' });
   const scrollToAbout = () => footerRef.current?.scrollIntoView({ behavior: 'smooth' });
 const scrollToContact = () => footerRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -27,10 +25,8 @@ const scrollToContact = () => footerRef.current?.scrollIntoView({ behavior: 'smo
     <>
     {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
     <div className='app'>
-      {/* 4. Pass the scroll function to Navbar */}
       <Navbar setShowLogin={setShowLogin} onMenuClick={scrollToMenu}  onAboutClick={scrollToAbout}  onContactClick={scrollToContact} />
       <Routes>
-        {/* 5. Pass the ref to the Home component */}
         <Route path="/" element={<Home menuRef={menuRef}/>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/placeorder" element={<PlaceOrder />} />

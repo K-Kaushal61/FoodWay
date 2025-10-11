@@ -33,7 +33,7 @@ const StoreContextProvider = (props) => {
         for(const itemId in cartItems) {
             if(cartItems[itemId] > 0){
                 const item = food_list.find(item => item._id === itemId);
-                if(item) { // Check if item is found before using its price
+                if(item) {
                     totalAmount += item.price * cartItems[itemId];
                 }
             }
@@ -48,7 +48,6 @@ const StoreContextProvider = (props) => {
 
     const loadCartData = async (token) => {
         const response = await axios.get(url+"/api/cart/getcart", { headers: { Authorization: `Bearer ${token}` }});
-        // ✅ FIX: Set cartItems to an empty object if response.data.cartData is falsy (null or undefined)
         setCartItems(response.data.cartData || {});
     }
 
