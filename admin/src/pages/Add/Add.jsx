@@ -64,7 +64,7 @@ const Add = ({url}) => {
         <div className="add-category-price flex gap-10">
           <div className="add-category flex flex-col gap-2">
             <p>Product Category</p>
-            <select onChange={onChangeHandler} name="category" className='border border-[#a9a9a9] p-2 max-w-30 ' >
+            <select onChange={onChangeHandler} value={data.category} name="category" className='border border-[#a9a9a9] p-2 max-w-30 ' >
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Desserts">Desserts</option>
