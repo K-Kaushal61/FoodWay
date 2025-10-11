@@ -1,7 +1,17 @@
 import { foodModel } from "../models/foodModel.models.js";
 
 // add food items
+// foodController.controllers.js
+
 const addFood = async (req, res) => {
+  // 🔽 THIS IS THE EDIT 🔽
+  // First, check if a file was actually uploaded.
+  if (!req.file) {
+    console.log("Error: req.file is missing. Check Cloudinary credentials.");
+    return res.json({ success: false, message: "Image upload failed, please check server logs." });
+  }
+
+  // This part of your code is correct
   const imageUrl = req.file.path;
 
   const food = new foodModel({
@@ -9,15 +19,15 @@ const addFood = async (req, res) => {
     description: req.body.description,
     price: req.body.price,
     category: req.body.category,
-    image: imageUrl, 
+    image: imageUrl,
   });
 
   try {
     await food.save();
     res.json({ success: true, message: "Food added" });
   } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: "Error: Food was not saved" });
+    console.log("Error saving food to database:", error);
+    res.json({ success: false, message: "Error: Food was not saved to DB" });
   }
 };
 
